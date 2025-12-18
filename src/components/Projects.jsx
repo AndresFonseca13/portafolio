@@ -1,0 +1,68 @@
+import { useState, useEffect } from "react";
+import Card from "./Card";
+
+function Projects() {
+    const [proyectos, setProyectos] = useState([])
+    const [cargando, setCargando] = useState(true)
+
+    useEffect(() => {
+        //Simular llamado a API
+        console.log('Cargando Proyectos...')
+
+        setTimeout(() => {
+            const proyectosSimulados = [
+                {
+                    id: 1, 
+                    titulo: 'E-Commerce Backend',
+                    descripcion: 'Sistema Completo de comercio electronico con gestion de productos, carritos y pagos.',
+                    tecnologias: ['Java', 'Spring Boot', 'MySQL', 'MySQL' ]
+                },
+                {
+                    id: 2, 
+                    titulo: 'API REST', 
+                    descripcion: 'API RESTful con autenticacion y documentacion completa.',
+                    tecnologias: ['Node.js', 'Express', 'MongoDB' ]
+                },
+                {
+                    id: 3, 
+                    titulo: 'Sistema de Autenticacion', 
+                    descripcion: 'Microservicio de autenticacion con JWT y refresh tokens.',
+                    tecnologias: ['Java', 'Spring Security', 'JWT', 'Redis' ]
+                }
+            ]
+
+            setProyectos(proyectosSimulados)
+            setCargando(false)
+            console.log('Proyectos cargados!')
+        }, 2000)
+    }, []) //Array Vacio se ejecuta solo una vez
+
+    return (
+        <section id="proyectos" className="py-16 bg-gray-50">
+            <div className="container mx-auto px-4">
+                <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+                    Mis Proyectos
+                </h2>
+
+                {cargando ? (
+                    <div className="text-center">
+                    <p className="text-xl text-gray-600">Cargando Proyectos...</p>
+                    </div>
+                ) : (
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {proyectos.map((proyecto) => (
+                        <Card
+                        key={proyecto.id}
+                        titulo={proyecto.titulo}
+                        descripcion={proyecto.descripcion}
+                        tecnologias={proyecto.tecnologias}
+                        />
+                    ))}
+                </div>
+                )}
+            </div>
+        </section>
+    )
+}
+
+export default Projects;

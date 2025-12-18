@@ -1,34 +1,45 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Header from './components/Header'
+import Hero from './components/Hero'
+import About from './components/About';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const menuItems = ['Inicio', 'Sobre mí', 'Proyectos', 'Habilidades', 'Contacto'];
+
+  const misHabilidades = [
+    'Java',
+    'Spring Boot',
+    'MySQL',
+    'Git',
+    'React',
+    "Node.js"
+  ]
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div className="App min-h-screen bg-white">
+      <Header 
+      logo="AF Portfolio"
+      menuItems={menuItems}/>
+      <Hero
+      nombre="Andres Fonseca"
+      titulo="Desarrollador Backend"
+      descripcion="Apasionado por la tecnología y el desarrollo de software, con experiencia en la creación de aplicaciones robustas y escalables."
+      />
+      <About
+      titulo="Sobre mí"
+      descripcion="Soy un desarrollador enfocado en backend con experiencia en Java y Spring Boot."
+      habilidades={misHabilidades}
+      />
+      <Projects />
+      <Skills/>
+      <Contact/>
+      <Footer/>
+      <ScrollToTop/>
+    </div>
   )
 }
 
