@@ -38,7 +38,7 @@ function Header({ logo, menuItems }) {
                 {/* Boton hamburguesa mejorado */}
                 <button 
                     onClick={ toggleMenu }
-                    className="md:hidden bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition flex items-center gap-2"
+                    className="md:hidden bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition flex items-center gap-2 z-50 relative"
                 >
                     <span>{menuAbierto ? 'Cerrar' : 'Menu'}</span>
                     <motion.div
@@ -64,25 +64,34 @@ function Header({ logo, menuItems }) {
                         ))}
                     </ul>
                 </nav>
+                </div>
             </div>
             {/* Menú móvil (animado) */}
-            <div className="md:hidden">
-                <AnimatePresence>
-                    {menuAbierto && (
-                    <motion.nav
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
+            <AnimatePresence>
+                {menuAbierto && (
+                    <>
+                    <motion.div
+                        className="fixed inset-0 md:hidden z-40"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
-                        className="overflow-hidden"
+                        onClick={() => setMenuAbierto(false)}
+                    />
+                    <motion.nav
+                        initial={{ x: '100%' }}
+                        animate={{ x: 0 }}
+                        exit={{ x: '100%' }}
+                        transition={{ duration: 0.3 }}
+                        className="fixed top-18 right-0 bottom-0 w-64 bg-gray-800 md:hidden z-50 shadow-2xl border-l-4 border-blue-600"
                     >
-                        <ul className="flex flex-col gap-4 mt-4 py-4">
+                        <ul className="flex flex-col gap-2 p-6">
                         {menuItems.map((item, index) => (
                             <motion.li 
                             key={index}
                             onClick={() => handleClick(item)}
-                            className="hover:text-blue-400 cursor-pointer transition text-center py-2"
-                            initial={{ opacity: 0, x: -20 }}
+                            className="hover:bg-gray-700 cursor-pointer transition px-4 py-3 rounded-lg text-white"
+                            initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ delay: index * 0.1 }}
                             whileTap={{ scale: 0.95 }}
@@ -92,10 +101,9 @@ function Header({ logo, menuItems }) {
                         ))}
                         </ul>
                     </motion.nav>
-                    )}
-                </AnimatePresence>
-            </div>
-            </div>
+                </>
+                )}
+            </AnimatePresence>
         </header>
     )
 }
