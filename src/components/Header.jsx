@@ -71,19 +71,30 @@ function Header({ logo, menuItems }) {
                 {menuAbierto && (
                     <>
                     <motion.div
-                        className="fixed inset-0 md:hidden z-40"
+                        className="fixed inset-0 right-64 bg-black bg-opacity-50 md:hidden z-40"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ duration: 0.2 }}
                         onClick={() => setMenuAbierto(false)}
+                        style={{ transform: 'translateZ(0)' }}
                     />
+
                     <motion.nav
                         initial={{ x: '100%' }}
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
-                        transition={{ duration: 0.3 }}
+                        transition={{ 
+                            type: 'spring',
+                            damping: 25,
+                            stiffness: 200
+                         }}
                         className="fixed top-18 right-0 bottom-0 w-64 bg-gray-800 md:hidden z-50 shadow-2xl border-l-4 border-blue-600"
+                        style={{
+                            transform: 'translateZ(0)',
+                            backfaceVisibility: 'hidden',
+                            WebkitBackfaceVisibility: 'hidden'
+                        }}
                     >
                         <ul className="flex flex-col gap-2 p-6">
                         {menuItems.map((item, index) => (
@@ -91,9 +102,6 @@ function Header({ logo, menuItems }) {
                             key={index}
                             onClick={() => handleClick(item)}
                             className="hover:bg-gray-700 cursor-pointer transition px-4 py-3 rounded-lg text-white"
-                            initial={{ opacity: 0, x: 50 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: index * 0.1 }}
                             whileTap={{ scale: 0.95 }}
                             >
                             {item}
