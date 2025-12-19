@@ -71,7 +71,7 @@ function Header({ logo, menuItems }) {
                 {menuAbierto && (
                     <>
                     <motion.div
-                        className="fixed inset-0 right-64 bg-black bg-opacity-50 md:hidden z-40"
+                        className="fixed inset-0 right-64 md:hidden z-40"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
