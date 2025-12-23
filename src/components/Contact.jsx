@@ -31,10 +31,10 @@ function Contact() {
     } 
 
     return (
-        <section id="contacto" className="py-16 bg-gradient-to-r from-blue-600 to-purple-600">
+        <section id="contacto" className="py-16 bg-gray-50">
             <div className="container mx-auto px-4 max-w-2xl">
                 <motion.h2
-                    className="text-4xl font-bold text-center text-white mb-12"
+                    className="text-4xl font-bold text-center text-gray-900 mb-12"
                     initial={{ opacity: 0, y: -30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -60,9 +60,9 @@ function Contact() {
                                 <p>Gracias por contactarme. Te responderé pronto.</p>
                             </motion.div>
                         ) : (
-                            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-xl p-8">
+                            <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-xl p-8 border border-gray-200">
                                 <div className="mb-6">
-                                    <label htmlFor="nombre" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="nombre" className="block text-gray-800 font-medium mb-2">
                                         Nombre
                                     </label>
                                     <input
@@ -72,13 +72,13 @@ function Contact() {
                                     value={formData.nombre}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white text-gray-900"
                                     placeholder="Tu nombre"
                                     />
                                 </div>
 
                                 <div className="mb-6">
-                                    <label htmlFor="email" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="email" className="block text-gray-800 font-medium mb-2">
                                     Email
                                     </label>
                                     <input
@@ -88,13 +88,13 @@ function Contact() {
                                     value={formData.email}
                                     onChange={handleChange}
                                     required
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition bg-white text-gray-900"
                                     placeholder="tu@email.com"
                                     />
                                 </div>
 
                                 <div className="mb-6">
-                                    <label htmlFor="mensaje" className="block text-gray-700 font-medium mb-2">
+                                    <label htmlFor="mensaje" className="block text-gray-800 font-medium mb-2">
                                     Mensaje
                                     </label>
                                     <textarea
@@ -104,7 +104,7 @@ function Contact() {
                                     onChange={handleChange}
                                     required
                                     rows="5"
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none bg-white text-gray-900"
                                     placeholder="Escribe tu mensaje aquí..."
                                     />
                                 </div>

@@ -40,13 +40,13 @@ function Projects() {
     return (
         <section id="proyectos" className="py-16 bg-gray-50">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">
+                <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">
                     Mis Proyectos
                 </h2>
 
                 {cargando ? (
                     <div className="text-center">
-                    <p className="text-xl text-gray-600">Cargando Proyectos...</p>
+                    <p className="text-xl text-gray-700">Cargando Proyectos...</p>
                     </div>
                 ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

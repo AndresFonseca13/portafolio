@@ -1,9 +1,13 @@
 import  { motion } from 'motion/react'
 
-function Card({ titulo, descripcion, tecnologias, imagen}){
+function Card({ titulo, descripcion, tecnologias, imagen, darkMode = false}){
     return (
-        <motion.div 
-            className="bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 p-6"
+        <motion.div
+            className={`rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-6 ${
+                darkMode
+                    ? 'bg-white/10 backdrop-blur-sm border border-white/20 hover:border-white/40'
+                    : 'bg-white border border-gray-200'
+            }`}
             initial={{ opacity:0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px"}}
@@ -11,20 +15,28 @@ function Card({ titulo, descripcion, tecnologias, imagen}){
             whileHover={{ y: -10}}
             >
             {imagen && (
-                <img 
-                    src={imagen} 
-                    alt={titulo} 
+                <img
+                    src={imagen}
+                    alt={titulo}
                 />
             )}
-            <h3 className="text-xl font-bold text-gray-800 mb-3">{titulo}</h3>
-            <p className="text-gray-600 mb-4">{descripcion}</p>
+            <h3 className={`text-xl font-bold mb-3 ${darkMode ? 'text-white' : 'text-gray-800'}`}>
+                {titulo}
+            </h3>
+            <p className={`mb-4 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                {descripcion}
+            </p>
 
             {tecnologias && tecnologias.length > 0 && (
                 <div className="flex flex-wrap gap-2">
                     {tecnologias.map((tech, index) => (
-                        <motion.span 
-                            key={index} 
-                            className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium"
+                        <motion.span
+                            key={index}
+                            className={`px-3 py-1 rounded-full text-sm font-medium ${
+                                darkMode
+                                    ? 'bg-blue-500/20 text-blue-300 border border-blue-400/30'
+                                    : 'bg-blue-100 text-blue-800'
+                            }`}
                             initial={{ opacity: 0, scale: 0 }}
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true}}

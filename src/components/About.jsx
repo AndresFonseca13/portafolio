@@ -6,10 +6,10 @@ function About({titulo, descripcion, habilidades}) {
     const [mostrarHabilidades, setMostrarHabilidades] = useState(false);
 
     return (
-        <section id="sobre-mi" className="py-16 bg-gray-100">
+        <section id="sobre-mi" className="py-16 bg-transparent">
             <div className="container mx-auto px-4 max-w-4xl">
                 <motion.h2 
-                    className="text-4xl font-bold text-center text-gray-800 mb-6"
+                    className="text-4xl font-bold text-center text-white mb-6"
                     initial={{ opacity: 0, y: -30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -19,7 +19,7 @@ function About({titulo, descripcion, habilidades}) {
                 </motion.h2>
 
                 <motion.p 
-                    className="text-lg text-gray-700 text-center mb-8"
+                    className="text-lg text-gray-300 text-center mb-8"
                     initial={{ opacity: 0, y:20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -40,17 +40,17 @@ function About({titulo, descripcion, habilidades}) {
                 </div>
 
                 {mostrarHabilidades && (
-                    <motion.div 
-                        className="mt-8 bg-white rounded-lg shadow-md p-6"
+                    <motion.div
+                        className="mt-8 bg-white/10 backdrop-blur-sm rounded-lg shadow-2xl p-6 border border-white/20"
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4 }}
                         >
                         <ul className="grid grid-cols-2 md:grid-cols-3 gap-4">
                             { habilidades.map((habilidad, index) => (
-                                <motion.li 
+                                <motion.li
                                     key={index}
-                                    className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-4 py-2 rounded-lg text-center font-medium"
+                                    className="bg-blue-500/20 text-blue-300 px-4 py-2 rounded-lg text-center font-medium border border-blue-400/30"
                                     initial={{ opacity: 0, scale: 0.8 }}
                                     animate={{ opacity: 1, scale: 1 }}
                                     transition={{ duration: 0.3, delay: index * 0.05 }}

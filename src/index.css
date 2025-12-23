@@ -9,7 +9,10 @@ body {
   font-family: 'Inter', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #0a0e27;
+  color: #e2e8f0;
 }
+
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Space Grotesk', system-ui, sans-serif;

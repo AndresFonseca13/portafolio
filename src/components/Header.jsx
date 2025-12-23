@@ -31,22 +31,33 @@ function Header({ logo, menuItems }) {
         }
     }
     return (
-        <header className="bg-gray-900 text-white shadow-lg sticky top-0 z-50">
+        <header className="bg-[#0a0e27]/95 backdrop-blur-sm text-white shadow-2xl sticky top-0 z-50 border-b border-white/10">
             <div className="container mx-auto px-4 py-4">
                 <div className="flex justify-between items-center">
                 <h1 className="text-2xl font-bold">{ logo }</h1>
                 {/* Boton hamburguesa mejorado */}
-                <button 
+                <button
                     onClick={ toggleMenu }
-                    className="md:hidden bg-blue-600 px-4 py-2 rounded hover:bg-blue-700 transition flex items-center gap-2 z-50 relative"
+                    className="md:hidden p-2 rounded-lg hover:bg-white/10 transition-all z-[1000] relative"
+                    aria-label={menuAbierto ? 'Cerrar menú' : 'Abrir menú'}
                 >
-                    <span>{menuAbierto ? 'Cerrar' : 'Menu'}</span>
-                    <motion.div
-                        animate={{ rotate: menuAbierto ? 180 : 0 }}
-                        transition={{ duration: 0.3 }}
-                        >
-                            {menuAbierto ? 'x' : '='}
-                    </motion.div>  
+                    <div className="w-6 h-5 flex flex-col justify-between">
+                        <motion.span
+                            className="w-full h-0.5 bg-white rounded-full"
+                            animate={menuAbierto ? { rotate: 45, y: 9 } : { rotate: 0, y: 0 }}
+                            transition={{ duration: 0.3 }}
+                        />
+                        <motion.span
+                            className="w-full h-0.5 bg-white rounded-full"
+                            animate={menuAbierto ? { opacity: 0 } : { opacity: 1 }}
+                            transition={{ duration: 0.3 }}
+                        />
+                        <motion.span
+                            className="w-full h-0.5 bg-white rounded-full"
+                            animate={menuAbierto ? { rotate: -45, y: -9 } : { rotate: 0, y: 0 }}
+                            transition={{ duration: 0.3 }}
+                        />
+                    </div>
                 </button>
                 {/* Menu desktop (siempre visible) */}
                 <nav className="hidden md:block">
@@ -70,39 +81,59 @@ function Header({ logo, menuItems }) {
             <AnimatePresence>
                 {menuAbierto && (
                     <>
+                    {/* Backdrop oscuro */}
                     <motion.div
-                        className="fixed inset-0 right-64 md:hidden z-40"
+                        className="fixed inset-0 bg-black/60 backdrop-blur-sm md:hidden z-[998]"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.2 }}
+                        transition={{ duration: 0.3 }}
                         onClick={() => setMenuAbierto(false)}
-                        style={{ transform: 'translateZ(0)' }}
                     />
 
+                    {/* Panel del menú */}
                     <motion.nav
                         initial={{ x: '100%' }}
                         animate={{ x: 0 }}
                         exit={{ x: '100%' }}
-                        transition={{ 
+                        transition={{
                             type: 'spring',
                             damping: 25,
                             stiffness: 200
                          }}
-                        className="fixed top-18 right-0 bottom-0 w-64 bg-gray-800 md:hidden z-50 shadow-2xl border-l-4 border-blue-600"
+                        className="fixed top-0 right-0 bottom-0 w-72 bg-[#0a0e27] md:hidden z-[999] shadow-2xl border-l border-blue-500/50 flex flex-col"
                         style={{
                             transform: 'translateZ(0)',
                             backfaceVisibility: 'hidden',
                             WebkitBackfaceVisibility: 'hidden'
                         }}
                     >
-                        <ul className="flex flex-col gap-2 p-6">
+                        {/* Header del menú */}
+                        <div className="p-6 border-b border-white/10 flex justify-between items-center">
+                            <h2 className="text-xl font-bold text-white">Menú</h2>
+                            <button
+                                onClick={() => setMenuAbierto(false)}
+                                className="p-2 rounded-lg hover:bg-white/10 transition-all"
+                                aria-label="Cerrar menú"
+                            >
+                            </button>
+                        </div>
+
+                        {/* Items del menú */}
+                        <ul className="flex-col p-4 flex-1 bg-[#0a0e27] border-l border-blue-500/50">
+                            { /* flex-col p-4 flex-1 overflow-y-auto */}
                         {menuItems.map((item, index) => (
-                            <motion.li 
-                            key={index}
+                            <motion.li
+                            key={`menu-${index}`}
                             onClick={() => handleClick(item)}
-                            className="hover:bg-gray-700 cursor-pointer transition px-4 py-3 rounded-lg text-white"
-                            whileTap={{ scale: 0.95 }}
+                            className="hover:bg-white/10 cursor-pointer transition-all px-4 py-3 rounded-lg text-white text-lg font-medium"
+                            whileHover={{ x: 4, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
+                            whileTap={{ scale: 0.98 }}
+                            style={{
+                                animationDelay: `${index * 50}ms`,
+                                opacity: 1,
+                                color: 'white'
+                            }}
                             >
                             {item}
                             </motion.li>
