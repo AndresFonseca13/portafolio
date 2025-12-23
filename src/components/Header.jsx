@@ -101,7 +101,7 @@ function Header({ logo, menuItems }) {
                             damping: 25,
                             stiffness: 200
                          }}
-                        className="fixed top-0 right-0 bottom-0 w-72 bg-[#0a0e27] md:hidden z-[999] shadow-2xl border-l border-blue-500/50 flex flex-col"
+                        className="fixed top-0 right-0 bottom-0 w-72 bg-[#0a0e27] md:hidden z-[999] shadow-2xl border-l border-blue-500/50"
                         style={{
                             transform: 'translateZ(0)',
                             backfaceVisibility: 'hidden',
@@ -109,7 +109,7 @@ function Header({ logo, menuItems }) {
                         }}
                     >
                         {/* Header del menú */}
-                        <div className="p-6 border-b border-white/10 flex justify-between items-center">
+                        <div className="p-6 border-b border-white/10 flex justify-between items-center flex-shrink-0">
                             <h2 className="text-xl font-bold text-white">Menú</h2>
                             <button
                                 onClick={() => setMenuAbierto(false)}
@@ -120,25 +120,19 @@ function Header({ logo, menuItems }) {
                         </div>
 
                         {/* Items del menú */}
-                        <ul className="flex-col p-4 flex-1 bg-[#0a0e27] border-l border-blue-500/50">
-                            { /* flex-col p-4 flex-1 overflow-y-auto */}
+                        <div className="flex-1 p-4 flex flex-col justify-start gap-4 bg-[#0a0e27] border-l-2 border-blue-500/50">
                         {menuItems.map((item, index) => (
-                            <motion.li
+                            <motion.div
                             key={`menu-${index}`}
                             onClick={() => handleClick(item)}
                             className="hover:bg-white/10 cursor-pointer transition-all px-4 py-3 rounded-lg text-white text-lg font-medium"
                             whileHover={{ x: 4, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
                             whileTap={{ scale: 0.98 }}
-                            style={{
-                                animationDelay: `${index * 50}ms`,
-                                opacity: 1,
-                                color: 'white'
-                            }}
                             >
                             {item}
-                            </motion.li>
+                            </motion.div>
                         ))}
-                        </ul>
+                        </div>
                     </motion.nav>
                 </>
                 )}

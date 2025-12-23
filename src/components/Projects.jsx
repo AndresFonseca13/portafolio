@@ -15,7 +15,7 @@ function Projects() {
                     id: 1, 
                     titulo: 'E-Commerce Backend',
                     descripcion: 'Sistema Completo de comercio electronico con gestion de productos, carritos y pagos.',
-                    tecnologias: ['Java', 'Spring Boot', 'MySQL', 'MySQL' ]
+                    tecnologias: ['Java', 'Spring Boot', 'MySQL', 'MySQL', 'Stripe', 'Docker' ]
                 },
                 {
                     id: 2, 
