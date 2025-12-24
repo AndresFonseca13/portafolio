@@ -110,7 +110,7 @@ function Header({ logo, menuItems }) {
                     >
                         {/* Header del menú */}
                         <div className="p-6 border-b border-white/10 flex justify-between items-center flex-shrink-0">
-                            <h2 className="text-xl font-bold text-white">Menú</h2>
+                            <h2 className="text-2xl font-bold text-white tracking-tight">Navegación</h2>
                             <button
                                 onClick={() => setMenuAbierto(false)}
                                 className="p-2 rounded-lg hover:bg-white/10 transition-all"
@@ -120,12 +120,12 @@ function Header({ logo, menuItems }) {
                         </div>
 
                         {/* Items del menú */}
-                        <div className="flex-1 p-4 flex flex-col justify-start gap-4 bg-[#0a0e27] border-l-2 border-blue-500/50">
+                        <div className="flex-1 p-6 flex flex-col justify-start gap-3 bg-[#0a0e27] border-l-2 border-blue-500/50">
                         {menuItems.map((item, index) => (
                             <motion.div
                             key={`menu-${index}`}
                             onClick={() => handleClick(item)}
-                            className="hover:bg-white/10 cursor-pointer transition-all px-4 py-3 rounded-lg text-white text-lg font-medium"
+                            className="hover:bg-white/10 cursor-pointer transition-all px-5 py-4 rounded-lg text-white text-base font-semibold tracking-wide"
                             whileHover={{ x: 4, backgroundColor: 'rgba(255, 255, 255, 0.1)' }}
                             whileTap={{ scale: 0.98 }}
                             >
