@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
     const [formData, setFormData] = useState({
@@ -20,14 +21,43 @@ function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('Formulario Enviado', formData);
-        setEnviado(true);
 
-        // Resetear el formulario despues de 4 segundos
-        setTimeout(() => {
-            setFormData({ nombre: "", email: "", mensaje: "" });
-            setEnviado(false);
-        }, 4000);
+        // Configurar EmailJS
+        const serviceID = "service_uu3jwtm";
+        const templateID = "template_pd76vj5";
+        const publicKey = "fjcPbYNlwtazVQhSu";
+
+        // Preparar los parámetros del template
+        const templateParams = {
+            from_name: formData.nombre,
+            from_email: formData.email,
+            message: formData.mensaje,
+            time: new Date().toLocaleString('es-ES', {
+                dateStyle: 'long',
+                timeStyle: 'short'
+            }),
+            year: new Date().getFullYear()
+        };
+
+        console.log('Enviando email con los siguientes parámetros:', templateParams);
+
+        // Enviar el email
+        emailjs.send(serviceID, templateID, templateParams, publicKey)
+            .then((response) => {
+                console.log('Email enviado exitosamente!', response.status, response.text);
+                setEnviado(true);
+
+                // Resetear el formulario despues de 4 segundos
+                setTimeout(() => {
+                    setFormData({ nombre: "", email: "", mensaje: "" });
+                    setEnviado(false);
+                }, 4000);
+            })
+            .catch((error) => {
+                console.error('Error al enviar el email:', error);
+                console.error('Detalles del error:', error.text);
+                alert('Hubo un error al enviar el mensaje. Por favor, intenta de nuevo.');
+            });
     } 
 
     return (
