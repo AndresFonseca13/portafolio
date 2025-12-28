@@ -15,13 +15,17 @@ function Projects() {
                     id: 1, 
                     titulo: 'Menu Digital',
                     descripcion: 'Plataforma de gestión integral para restaurantes que digitaliza la experiencia del cliente y gestiona lo que el cliente ve.',
-                    tecnologias: ['Node.js', 'Express', 'React', 'PostgreSQL (Supabase)', 'Vercel' ]
+                    tecnologias: ['Node.js', 'Express', 'React', 'PostgreSQL (Supabase)', 'Vercel' ],
+                    imageURL: 'https://iaujxobgqsklhlvwpldm.supabase.co/storage/v1/object/public/images/Captura%20de%20pantalla%20Dic%2028%202025.webp',
+                    urlProject: 'https://huerta-frontend.vercel.app/bebidas'
                 },
                 {
                     id: 2,
                     titulo: 'Portafolio Profesional',
                     descripcion: 'Espacio personal diseñado para exhibir trayectoria y habilidades técnicas, con un enfoque en diseño limpio y experiencia de usuario.',
-                    tecnologias: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel' ]
+                    tecnologias: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel' ],
+                    imageURL: 'https://iaujxobgqsklhlvwpldm.supabase.co/storage/v1/object/public/images/Captura%20de%20pantalla%20Dec%2028%202025.webp',
+                    urlProject: 'https://portafolio-ruby-six.vercel.app/'
                 }
             ]
 
@@ -43,13 +47,15 @@ function Projects() {
                     <p className="text-xl text-gray-700">Cargando Proyectos...</p>
                     </div>
                 ) : (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
                     {proyectos.map((proyecto) => (
                         <Card
                         key={proyecto.id}
                         titulo={proyecto.titulo}
                         descripcion={proyecto.descripcion}
                         tecnologias={proyecto.tecnologias}
+                        imagen={proyecto.imageURL}
+                        urlProject={proyecto.urlProject}
                         />
                     ))}
                 </div>
