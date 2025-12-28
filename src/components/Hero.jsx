@@ -89,7 +89,7 @@ function Hero({nombre, titulo, descripcion}) {
 
                         {/* Laptop con animación de flotación */}
                         <motion.img
-                            src="/laptop.png"
+                            src="/laptop_mejorado.png"
                             alt="Laptop con código"
                             className="w-full max-w-md md:max-w-lg drop-shadow-2xl relative z-10"
                             animate={{
