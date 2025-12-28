@@ -18,7 +18,7 @@ function About({titulo, descripcion}) {
         {
             id: 2,
             tipo: "educacion",
-            titulo: "Ingeniería en Sistemas",
+            titulo: "Ingeniería de Software",
             organizacion: "Fundacion Universitaria Compensar",
             periodo: "2023 - Presente",
             descripcion: "Estudiante de Ingeniería de Sistemas, actualmente en el 6º semestre."
