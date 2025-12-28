@@ -11,15 +11,6 @@ import WaveDivider from './components/WaveDivider';
 function App() {
   const menuItems = ['Inicio', 'Sobre mí', 'Proyectos', 'Habilidades', 'Contacto'];
 
-  const misHabilidades = [
-    'Java',
-    'Spring Boot',
-    'MySQL',
-    'Git',
-    'React',
-    "Node.js"
-  ]
-
   return (
     <div className="App min-h-screen bg-gradient-to-b from-[#0a0e27] to-[#1a1f3a] text-gray-100">
       <Header
@@ -41,7 +32,6 @@ function App() {
       <About
       titulo="Sobre mí"
       descripcion="Desarrollador Backend especializado en el ecosistema Java y Spring Boot. Actualmente curso el 6º semestre de Ingeniería de Software, complementando mi formación académica con certificaciones como Oracle Next Education y aprendizaje autodidacta constante. Me caracterizo por mi disciplina técnica, curiosidad por la arquitectura de software y capacidad para investigar y resolver problemas complejos."
-      habilidades={misHabilidades}
       />
 
       <Skills/>
