@@ -27,9 +27,9 @@ function App() {
       menuItems={menuItems}/>
 
       <Hero
-      nombre="Andres Fonseca"
-      titulo="Desarrollador Backend"
-      descripcion="Apasionado por la tecnología y el desarrollo de software, con experiencia en la creación de aplicaciones robustas y escalables."
+      nombre="Andres"
+      titulo="Backend Developer"
+      descripcion="Técnico en programación y estudiante de desarrollo de software. Transformo necesidades complejas en soluciones eficientes y escalables. Apasionado por la lógica detrás de los datos, las APIs y el código limpio."
       />
 
       <WaveDivider bgColor="#f9fafb" />
@@ -40,7 +40,7 @@ function App() {
 
       <About
       titulo="Sobre mí"
-      descripcion="Soy un desarrollador enfocado en backend con experiencia en Java y Spring Boot."
+      descripcion="Desarrollador Backend especializado en el ecosistema Java y Spring Boot. Actualmente curso el 6º semestre de Ingeniería de Software, complementando mi formación académica con certificaciones como Oracle Next Education y aprendizaje autodidacta constante. Me caracterizo por mi disciplina técnica, curiosidad por la arquitectura de software y capacidad para investigar y resolver problemas complejos."
       habilidades={misHabilidades}
       />
 

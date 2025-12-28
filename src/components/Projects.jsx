@@ -13,21 +13,15 @@ function Projects() {
             const proyectosSimulados = [
                 {
                     id: 1, 
-                    titulo: 'E-Commerce Backend',
-                    descripcion: 'Sistema Completo de comercio electronico con gestion de productos, carritos y pagos.',
-                    tecnologias: ['Java', 'Spring Boot', 'MySQL', 'MySQL', 'Stripe', 'Docker' ]
+                    titulo: 'Menu Digital',
+                    descripcion: 'Plataforma de gestión integral para restaurantes que digitaliza la experiencia del cliente y gestiona lo que el cliente ve.',
+                    tecnologias: ['Node.js', 'Express', 'React', 'PostgreSQL (Supabase)', 'Vercel' ]
                 },
                 {
-                    id: 2, 
-                    titulo: 'API REST', 
-                    descripcion: 'API RESTful con autenticacion y documentacion completa.',
-                    tecnologias: ['Node.js', 'Express', 'MongoDB' ]
-                },
-                {
-                    id: 3, 
-                    titulo: 'Sistema de Autenticacion', 
-                    descripcion: 'Microservicio de autenticacion con JWT y refresh tokens.',
-                    tecnologias: ['Java', 'Spring Security', 'JWT', 'Redis' ]
+                    id: 2,
+                    titulo: 'Portafolio Profesional',
+                    descripcion: 'Espacio personal diseñado para exhibir trayectoria y habilidades técnicas, con un enfoque en diseño limpio y experiencia de usuario.',
+                    tecnologias: ['React', 'Tailwind CSS', 'Framer Motion', 'Vercel' ]
                 }
             ]
 

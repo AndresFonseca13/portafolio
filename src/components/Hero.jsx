@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import { useState } from 'react'
 
-function Hero({descripcion}) {
+function Hero({nombre, titulo, descripcion}) {
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
     const [isHovering, setIsHovering] = useState(false)
 
@@ -42,8 +42,16 @@ function Hero({descripcion}) {
                             animate = {{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, ease: "easeOut"}}
                             >
-                                Welcome.
-                            </motion.h1>
+                                {titulo}.
+                        </motion.h1>
+                        <motion.h2
+                            className="text-3xl md:text-4xl font-semibold mb-6 text-blue-400"
+                            initial= {{ opacity: 0, y: -30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut"}}
+                            >
+                                Hola soy {nombre}
+                        </motion.h2>
                         <motion.div
                             className="space-y-4"
                             initial= {{ opacity: 0 }}
