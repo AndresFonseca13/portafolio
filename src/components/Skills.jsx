@@ -26,7 +26,7 @@ function Skills(){
             ),
             color: "from-emerald-400/70 to-emerald-500/70",
             colorPill: "from-emerald-700/60 to-emerald-600/20",
-            habilidades: ['React', 'Node.js', 'MongoDB', 'Docker']
+            habilidades: ['React', 'TypeScript', 'Node.js', 'MongoDB', 'Docker']
         },
         {
             id: 3,
